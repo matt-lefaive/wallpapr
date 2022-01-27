@@ -9,18 +9,18 @@ prev_signal = ""
 NSFW_mode = False
 
 while True:
-    # Light up LEDs based on button/door states
-    if NSFW_mode:
-        red.value(1)
-    else:
-        red.value(0)
+
+    red.value(0 if NSFW_mode else 1)
 
     if button.value():
         # Toggle NSFW_Mode
         NSFW_mode = not NSFW_mode
         signal = "NSFW" if NSFW_mode else "SFW"
+                
+        if signal != prev_signal:
+            prev_signal = signal
+            print(signal)
+        
         time.sleep(0.5)
     
-    if signal != prev_signal:
-        prev_signal = signal
-        print(signal)
+    

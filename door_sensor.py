@@ -4,7 +4,7 @@ import time
 red = Pin(15, Pin.OUT)
 green = Pin(14, Pin.OUT)
 button = Pin(13, Pin.IN, Pin.PULL_DOWN)
-door = Pin(12, Pin.IN)
+door = Pin(10, Pin.IN, Pin.PULL_DOWN)
 
 signal = ""
 prev_signal = ""
