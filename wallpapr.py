@@ -10,20 +10,19 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 
 while 1:
 
-	# Wait until there is data waiting in the serial buffer
-	if serialPort.in_waiting > 0:
-		flag = serialPort.readline().decode('Ascii').strip()
-
-		if flag == 'NSFW':
-			print('Setting NSFW')
-			wallpaper = dir_path + '/nsfw/' + random.choice(os.listdir(dir_path + '/nsfw'))
-			ctypes.windll.user32.SystemParametersInfoW(20, 0, wallpaper, 0)
-		elif flag == 'SFW':
-			print('Setting SFW')
-			wallpaper = dir_path + '/sfw/' + random.choice(os.listdir(dir_path + '/sfw'))
-			ctypes.windll.user32.SystemParametersInfoW(20, 0, wallpaper, 0)
-
-		time.sleep(1)
+	# Block until data in serial port to read
+	flag = serialPort.readline().decode('Ascii').strip()
+	
+	if flag == 'NSFW':
+		print('Setting NSFW')
+		wallpaper = dir_path + '/nsfw/' + random.choice(os.listdir(dir_path + '/nsfw'))
+		ctypes.windll.user32.SystemParametersInfoW(20, 0, wallpaper, 0)
+	elif flag == 'SFW':
+		print('Setting SFW')
+		wallpaper = dir_path + '/sfw/' + random.choice(os.listdir(dir_path + '/sfw'))
+		ctypes.windll.user32.SystemParametersInfoW(20, 0, wallpaper, 0)
+	
+	time.sleep(1)
 
 		
 
