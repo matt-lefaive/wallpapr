@@ -8,18 +8,18 @@ serialPort = serial.Serial(port='COM4', baudrate=115200, bytesize=8, timeout=2, 
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
-while 1:
+while True:
 
-	# Block until data in serial port to read
+	# Block until data in serial buffer to read
 	flag = serialPort.readline().decode('Ascii').strip()
 	
-	if flag == 'NSFW':
-		print('Setting NSFW')
-		wallpaper = dir_path + '/nsfw/' + random.choice(os.listdir(dir_path + '/nsfw'))
+	if flag == 'a':
+		print('Setting a')
+		wallpaper = dir_path + '/a/' + random.choice(os.listdir(dir_path + '/a'))
 		ctypes.windll.user32.SystemParametersInfoW(20, 0, wallpaper, 0)
-	elif flag == 'SFW':
+	elif flag == 'b':
 		print('Setting SFW')
-		wallpaper = dir_path + '/sfw/' + random.choice(os.listdir(dir_path + '/sfw'))
+		wallpaper = dir_path + '/b/' + random.choice(os.listdir(dir_path + '/b'))
 		ctypes.windll.user32.SystemParametersInfoW(20, 0, wallpaper, 0)
 	
 	time.sleep(1)

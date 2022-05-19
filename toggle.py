@@ -6,16 +6,16 @@ button = Pin(13, Pin.IN, Pin.PULL_DOWN)
 
 signal = ""
 prev_signal = ""
-NSFW_mode = False
+a_mode = False
 
 while True:
 
-    red.value(0 if NSFW_mode else 1)
+    red.value(0 if a_mode else 1)
 
     if button.value():
-        # Toggle NSFW_Mode
-        NSFW_mode = not NSFW_mode
-        signal = "NSFW" if NSFW_mode else "SFW"
+        # Toggle mode
+        a_mode = not a_mode
+        signal = "a" if a_mode else "b"
                 
         if signal != prev_signal:
             prev_signal = signal
