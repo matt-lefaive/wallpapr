@@ -18,7 +18,7 @@ while True:
 		wallpaper = dir_path + '/a/' + random.choice(os.listdir(dir_path + '/a'))
 		ctypes.windll.user32.SystemParametersInfoW(20, 0, wallpaper, 0)
 	elif flag == 'b':
-		print('Setting SFW')
+		print('Setting b')
 		wallpaper = dir_path + '/b/' + random.choice(os.listdir(dir_path + '/b'))
 		ctypes.windll.user32.SystemParametersInfoW(20, 0, wallpaper, 0)
 	

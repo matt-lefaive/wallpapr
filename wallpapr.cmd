@@ -1,0 +1,1 @@
+pythonw D:/wallpapr/wallpapr.py
